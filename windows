@@ -20,7 +20,7 @@ docker ps
 docker start mongo
 }
 else { echo "Mongo is running" }
-
+start-sleep -s 5
 if ($npmservice -ne 0) 
 { echo "NPM container is not running, going to start NPM conatiner !!!!"
 docker run -idt --name npm --link mongo:mongo -p 3000:3000 sumitanand17/test:v1 
