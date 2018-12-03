@@ -1,0 +1,35 @@
+docker ps | findstr mongo
+$mongoservice=$LASTEXITCODE
+docker ps | findstr npm
+$npmservice=$LASTEXITCODE
+
+netstat -aon | findstr "27017"
+$mongo=$LASTEXITCODE
+netstat -aon | findstr "3000"
+$npm=$LASTEXITCODE
+
+if ($mongoservice -ne 0) 
+{ echo "Mongo container is not found, going to run mongo container !!!!"
+docker run -idt --name mongo -p 27017:27017 mongo:4.0.4
+}
+else { echo "Mongo conatiner exist, going to check mongo service" }
+
+if ($mongo -ne 0) 
+{ echo "Mongo is not running, going to start Mongo !!!!"
+docker ps  
+docker start mongo
+}
+else { echo "Mongo is running" }
+
+if ($npmservice -ne 0) 
+{ echo "NPM container is not running, going to start NPM conatiner !!!!"
+docker run -idt --name npm --link mongo:mongo -p 3000:3000 sumitanand17/test:v1 
+}
+else { echo "NPM conatiner exist, going to check npm is service" }
+
+if ($npm -ne 0) 
+{ echo "NPM is not running, going to start NPM !!!!"
+docker ps  
+docker start npm
+}
+else { echo "NPM is running" }
