@@ -1,0 +1,30 @@
+version: "3"
+networks:
+ client:
+  driver: bridge
+
+services:
+  client:
+     container_name: npm
+     image: sumitanand17/test:v1
+     ports:
+       - "3000:3000"
+     restart: unless-stopped
+     depends_on:
+       - mongo
+     networks:
+      - client
+
+  mongo:
+     container_name: mongo2
+     image: mongo:4.0.4
+     volumes:
+       - "mongo2:/data/db"
+       - "mongo2:/data/configdb"
+     ports:
+       - "27017:27017"
+     restart: unless-stopped
+     networks:
+       - client
+volumes:
+   mongo2:
