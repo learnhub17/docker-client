@@ -1,16 +1,16 @@
 docker ps | findstr mongo
 $mongoservice=$LASTEXITCODE
-docker ps | findstr npm
-$npmservice=$LASTEXITCODE
+docker ps | findstr daemon-client
+$clientservice=$LASTEXITCODE
 
 netstat -aon | findstr "27017"
 $mongo=$LASTEXITCODE
 netstat -aon | findstr "3000"
-$npm=$LASTEXITCODE
+$client=$LASTEXITCODE
 
 if ($mongoservice -ne 0) 
 { echo "Mongo container is not found, going to run mongo container !!!!"
-docker run -idt --name mongo -p 27017:27017 mongo:4.0.4
+docker run -idt --name mongo --restart=unless-stopped -p 27017:27017 mongo:4.0.4
 }
 else { echo "Mongo conatiner exist, going to check mongo service" }
 
@@ -21,15 +21,15 @@ docker start mongo
 }
 else { echo "Mongo is running" }
 start-sleep -s 5
-if ($npmservice -ne 0) 
-{ echo "NPM container is not running, going to start NPM conatiner !!!!"
-docker run -idt --name npm --link mongo:mongo -p 3000:3000 sumitanand17/test:v1 
+if ($clientservice -ne 0) 
+{ echo "daemon-client container is not running, going to start daemon-client conatiner !!!!"
+docker run -idt --name daemon-client --link mongo:mongo --restart=unless-stopped -p 3000:3000 sumitanand17/test:v1 
 }
-else { echo "NPM conatiner exist, going to check npm is service" }
+else { echo "daemon-client conatiner exist, going to check daemon-client is service" }
 
-if ($npm -ne 0) 
-{ echo "NPM is not running, going to start NPM !!!!"
+if ($client -ne 0) 
+{ echo "daemon-client is not running, going to start daemon-client !!!!"
 docker ps  
-docker start npm
+docker start daemon-client
 }
-else { echo "NPM is running" }
+else { echo "daemon-client is running" }
