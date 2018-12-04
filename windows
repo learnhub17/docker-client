@@ -1,3 +1,5 @@
+date
+echo "==========================="
 docker ps | findstr mongo
 $mongoservice=$LASTEXITCODE
 docker ps | findstr daemon-client
@@ -32,4 +34,4 @@ if ($client -ne 0)
 docker ps  
 docker start daemon-client
 }
-else { echo "daemon-client is running" }
+else { echo "daemon-client is running" }up
