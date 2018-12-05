@@ -34,4 +34,4 @@ if ($client -ne 0)
 docker ps  
 docker start daemon-client
 }
-else { echo "daemon-client is running" }up
+else { echo "daemon-client is running" }
