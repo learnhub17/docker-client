@@ -1,4 +1,16 @@
-PS C:\Users\anand> docker.exeker^C
+install page: https://docs.docker.com/v17.09/docker-for-windows/install/
+powershell command line:
+download: Invoke-WebRequest https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe
+-outfile C:\Users\arshk\Desktop\docker.exe
+install: .\msiexec.exe -i C:\Users\arshk\Desktop\docker.exe
+
+if failed with below error
+" Docker for Windows requires Windows 10 Pro or Enterprise version 14393 to run. "
+
+then install docker-toolbox
+url: https://docs.docker.com/v17.09/toolbox/overview/
+(windows server16 page: https://docs.docker.com/install/windows/docker-ee/ )
+PS C:\Users\anand> docker.exeker
 PS C:\Users\anand> docker version
 Client:
  Version:      17.03.1-ce-rc1
