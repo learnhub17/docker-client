@@ -5,7 +5,7 @@ networks:
 
 services:
   client:
-     container_name: npm
+     container_name: daemon-client
      image: sumitanand17/test:v1
      ports:
        - "3000:3000"
@@ -16,15 +16,15 @@ services:
       - client
 
   mongo:
-     container_name: mongo2
+     container_name: mongo
      image: mongo:4.0.4
      volumes:
-       - "mongo2:/data/db"
-       - "mongo2:/data/configdb"
+       - "mongo:/data/db"
+       - "mongo:/data/configdb"
      ports:
        - "27017:27017"
      restart: unless-stopped
      networks:
        - client
 volumes:
-   mongo2:
+   mongo:
