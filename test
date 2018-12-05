@@ -46,3 +46,4 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 c3abbccafea0        mongo:4.0.4         "docker-entrypoint..."   5 seconds ago       Up 4 seconds        0.0.0.0:27017->
 
 docker EE: https://docs.docker.com/install/windows/docker-ee/#system-requirements
+https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/configure-docker-daemon
