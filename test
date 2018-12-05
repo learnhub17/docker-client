@@ -48,3 +48,4 @@ c3abbccafea0        mongo:4.0.4         "docker-entrypoint..."   5 seconds ago  
 docker EE: https://docs.docker.com/install/windows/docker-ee/#system-requirements
 https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/configure-docker-daemon
 read: https://gist.github.com/Jaykul/15a6982aad9b6197a537f1ce5a786723
+https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/linux-containers
