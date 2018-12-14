@@ -1,7 +1,10 @@
 $jobname = "dockerrun"
 $description = "check docker containers daily every 5 minutes"
-$script = "C:\Users\anand\Desktop\test.ps1"
-$logout = "C:\Users\anand\Desktop\log.txt"
+#$script = "C:\Users\anand\Desktop\test.ps1"
+#$logout = "C:\Users\anand\Desktop\log.txt"
+$script = "$HOME\appdata\dockerrun.ps1"
+$logout = "$HOME\appdata\logs\log.txt"
+
 $repeat = (New-TimeSpan -Minutes 5)
 $duration = ([timespan]::FromDays(1000))
 
