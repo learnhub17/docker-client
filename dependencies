@@ -55,3 +55,6 @@ https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/
 read: https://gist.github.com/Jaykul/15a6982aad9b6197a537f1ce5a786723
 https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/linux-containers
 triget job with: Start-ScheduledTask -TaskName "docker"
+
+ensure hyper-v running on boot:
+https://stackoverflow.com/questions/48255871/failed-to-start-the-virtual-machine-mobylinuxvm-because-one-of-the-hyper-v-com/48260575
