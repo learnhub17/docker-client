@@ -59,3 +59,12 @@ triget job with: Start-ScheduledTask -TaskName "docker"
 
 ensure hyper-v running on boot:
 https://stackoverflow.com/questions/48255871/failed-to-start-the-virtual-machine-mobylinuxvm-because-one-of-the-hyper-v-com/48260575
+
+#####
+set env from powershell
+#########
+[System.Environment]::SetEnvironmentVariable('clientpath', 'E:/o4s-test', [System.EnvironmentVariableTarget]::User)
+or,
+[Environment]::SetEnvironmentVariable("clientpath", "E:/o4s-test", "user")
+$a=[environment]::GetEnvironmentVariable('clientpath', 'user')
+echo $a
