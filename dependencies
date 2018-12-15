@@ -70,3 +70,6 @@ or,
 [Environment]::SetEnvironmentVariable("clientpath", "E:/o4s-test", "user")
 $a=[environment]::GetEnvironmentVariable('clientpath', 'user')
 echo $a
+
+#run init script like
+powershell.exe C:\Users\demo\Desktop\docker-client\init.ps1 "E:\o4s-test"
