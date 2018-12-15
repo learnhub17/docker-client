@@ -60,6 +60,8 @@ triget job with: Start-ScheduledTask -TaskName "docker"
 ensure hyper-v running on boot:
 https://stackoverflow.com/questions/48255871/failed-to-start-the-virtual-machine-mobylinuxvm-because-one-of-the-hyper-v-com/48260575
 
+### enable runing script on windows ###
+Set-ExecutionPolicy Unrestricted -Force
 #####
 set env from powershell
 #########
