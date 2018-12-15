@@ -49,6 +49,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 c3abbccafea0        mongo:4.0.4         "docker-entrypoint..."   5 seconds ago       Up 4 seconds        0.0.0.0:27017->
 
 **if you want to mount local drive in windows, you need to enable shared directory in windows daemon and start container with -v hostpath:dockermount**
+script: https://gist.github.com/Jaykul/15a6982aad9b6197a537f1ce5a786723
 
 docker EE: https://docs.docker.com/install/windows/docker-ee/#system-requirements
 https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/configure-docker-daemon
