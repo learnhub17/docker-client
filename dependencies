@@ -73,3 +73,5 @@ echo $a
 
 #run init script like
 powershell.exe C:\Users\demo\Desktop\docker-client\init.ps1 "E:\o4s-test"
+or
+powershell.exe C:\Users\demo\Desktop\docker-client\init.ps1 "E:\o4s-test" >> $HOME\appdata\init.log
