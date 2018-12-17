@@ -15,9 +15,8 @@ Register-ScheduledTask -Action $action -Trigger $trigger -TaskName "$jobname" -D
 $jobname1 = "dockerstart"
 $description1 = "check docker start only on startup"
 $script1 = "$HOME\appdata\docker-client\dockerstart.ps1"
-$logout1 = "$HOME\appdata\docker-client\logs\log.txt"
 $principal = New-ScheduledTaskPrincipal -userID "$env:USERDOMAIN\$env:USERNAME" -LogonType S4U
 
-$action1 = New-ScheduledTaskAction -Execute "Powershell.exe" -Argument "$script1 >>$logout"
+$action1 = New-ScheduledTaskAction -Execute "Powershell.exe" -Argument "$script1
 $trigger1 = New-ScheduledTaskTrigger -AtStartup 
 Register-ScheduledTask -Action $action1 -Trigger $trigger1 -TaskName "$jobname1" -Description "$description1" -Principal $principal
