@@ -1,5 +1,7 @@
 date
 $data=[environment]::GetEnvironmentVariable('clientpath', 'user')
+$newversion=[environment]::GetEnvironmentVariable('clientversion', 'user')
+
 echo "==========================="
 docker ps | findstr mongo
 $mongoservice=$LASTEXITCODE
@@ -8,7 +10,7 @@ $clientservice=$LASTEXITCODE
 
 netstat -aon | findstr "27017"
 $mongo=$LASTEXITCODE
-netstat -aon | findstr "3000"
+netstat -aon | findstr "7000"
 $client=$LASTEXITCODE
 
 if ($mongoservice -ne 0) 
@@ -24,9 +26,10 @@ docker start mongo
 }
 else { echo "Mongo is running" }
 start-sleep -s 5
+
 if ($clientservice -ne 0) 
 { echo "daemon-client container is not running, going to start daemon-client conatiner !!!!"
-docker run -idt --name daemon-client -v ${data}:/data --link mongo:mongo --restart=unless-stopped -p 3000:3000 sumitanand17/test:v1 
+docker run -idt --name daemon-client -v ${data}:/data --link mongo:mongo --restart=unless-stopped -p 7000:7000 original4sure/daemon-client:$version 
 }
 else { echo "daemon-client conatiner exist, going to check daemon-client is service" }
 
