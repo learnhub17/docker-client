@@ -24,7 +24,6 @@ $clientservice=$LASTEXITCODE
 if ($clientservice -eq 0) 
 { 
 
-    docker ds -ErrorAction Stop
     echo "daemon-client container is running, going to stop remove and pull new version $version !!!!"
 
     $a = '"'+ $newversion +'"'
@@ -52,7 +51,6 @@ if ($clientservice -eq 0)
     echo '"status":"done"' >>$logout
     echo "}" >>$logout
     } 
-}
 else { echo " daemon-client is not runing !!!!" 
 # docker ps
 # docker rm daemon-client
