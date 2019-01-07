@@ -23,7 +23,7 @@ $clientservice=$LASTEXITCODE
 
 if ($clientservice -eq 0) 
 { 
-try { 
+
     docker ds -ErrorAction Stop
     echo "daemon-client container is running, going to stop remove and pull new version $version !!!!"
 
@@ -51,15 +51,7 @@ try {
     echo '"newversion":'"$a," >>$logout
     echo '"status":"done"' >>$logout
     echo "}" >>$logout
-    }catch {
-     "Error in Command"
-     $a = '"'+ $newversion +'"'
-    echo "{" >$logout
-    docker inspect daemon-client | Select-string "original4sure/daemon-client" >>$logout
-    echo '"newversion":'"$a," >>$logout
-    echo '"status":"Failed"' >>$logout
-    echo "}" >>$logout
-} 
+    } 
 }
 else { echo " daemon-client is not runing !!!!" 
 # docker ps
@@ -67,4 +59,3 @@ else { echo " daemon-client is not runing !!!!"
 # docker run -idt --name daemon-client -v ${data}:/data --link mongo:mongo --restart=unless-stopped -p 7000:7000 original4sure/daemon-client:$newversion
  docker ps
 }
-
