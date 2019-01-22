@@ -80,3 +80,7 @@ powershell.exe C:\Users\demo\Desktop\docker-client\init.ps1 "E:\o4s-test" >> $HO
  open //./pipe/docker_engine: The system cannot find the file specified. In the default daemon configuration on Windows, the docker client must be run elevated to connect. This error may also indicate that the docker daemon is not running.
 
 restart docker and verify with docker pull mongo:4.0.4
+
+###docker failed to start container which use mount volume
+https://github.com/docker/for-win/issues/1192
+https://github.com/docker/for-win/issues/1192#issuecomment-355939641
